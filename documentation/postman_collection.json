@@ -1,0 +1,125 @@
+{
+  "api_endpoints": {
+    "routes": {
+      "base_path": "/api/routes",
+      "description": "Manage transport routes",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/search",
+          "full_path": "/api/routes/search",
+          "description": "Find routes by locations",
+          "parameters": [
+            {
+              "name": "start",
+              "type": "query",
+              "required": true,
+              "description": "Starting location"
+            },
+            {
+              "name": "end",
+              "type": "query",
+              "required": true,
+              "description": "Destination location"
+            }
+          ]
+        },
+        {
+          "method": "GET",
+          "path": "/",
+          "full_path": "/api/routes",
+          "description": "Get all routes"
+        },
+        {
+          "method": "POST",
+          "path": "/",
+          "full_path": "/api/routes",
+          "description": "Create route",
+          "content_type": "application/json"
+        }
+      ]
+    },
+    "matatus": {
+      "base_path": "/api/matatus",
+      "description": "Manage vehicles",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/",
+          "full_path": "/api/matatus",
+          "description": "Get all matatus"
+        },
+        {
+          "method": "GET",
+          "path": "/{id}",
+          "full_path": "/api/matatus/{id}",
+          "description": "Get matatu by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "path",
+              "required": true,
+              "description": "Matatu ID"
+            }
+          ]
+        },
+        {
+          "method": "POST",
+          "path": "/",
+          "full_path": "/api/matatus",
+          "description": "Create matatu",
+          "content_type": "application/json"
+        }
+      ]
+    },
+    "bookings": {
+      "base_path": "/api/booking",
+      "description": "Handle seat reservations",
+      "endpoints": [
+        {
+          "method": "POST",
+          "path": "/create",
+          "full_path": "/api/booking/create",
+          "description": "Book seat (checks availability)",
+          "content_type": "application/json"
+        },
+        {
+          "method": "GET",
+          "path": "/",
+          "full_path": "/api/booking",
+          "description": "Get all bookings"
+        },
+        {
+          "method": "GET",
+          "path": "/matatu/{id}",
+          "full_path": "/api/booking/matatu/{id}",
+          "description": "Get bookings per vehicle",
+          "parameters": [
+            {
+              "name": "id",
+              "type": "path",
+              "required": true,
+              "description": "Matatu ID"
+            }
+          ]
+        }
+      ]
+    },
+    "database": {
+      "base_path": "/api/database",
+      "description": "Database operations",
+      "endpoints": [
+        {
+          "method": "GET",
+          "path": "/all",
+          "full_path": "/api/database/all",
+          "description": "Get all data at once"
+        }
+      ]
+    }
+  },
+  "server_info": {
+    "base_url": "http://localhost:8080",
+    "cors_origin": "http://localhost:3000"
+  }
+}
